@@ -1,0 +1,244 @@
+Цикл for:
+
+1)
+n = int(input("Конец диапозона: "))
+
+for i in range(1, n + 1):
+    print(i)
+
+2) 
+n = int(input("Конец диапозона: "))
+
+for i in range(1, n + 1):
+    if i % 2 != 0:
+       print(i)
+
+3) 
+n = int(input("Конец диапазона: "))
+
+for i in range(n, 0, -1):
+    print(i)
+
+4)
+n = int(input("Конец диапазона чисел, делящихся на 5 и не делящихся на 7: "))
+
+for i in range(1, n + 1):
+    if i % 5 == 0 and i % 7 != 0:
+        print(i)
+
+
+Строки:
+
+1)
+gadza = input("Строка: ")
+upper_gadza = gadza.upper()
+print("Строка в верхнем регистре:", upper_gadza)
+
+
+2)
+gadza = input("Строка: ")
+lower_gadza = gadza.lower()
+print("Строка в нижнем регистре:", lower_gadza)
+
+3)
+godzilla = input("1 строка: ")
+godora = input("2 строка: ")
+
+index = godora.find(godzilla[0])
+print("Индекс первого вхождения:", index)
+
+4)
+godzilla = input("1 строка: ")
+godora = input("2 строка: ")
+
+shit = godora.count(godzilla[0])
+print(" Кол-во 1 строки во 2:", shit)
+
+5)
+godzilla = input("Строка: ")
+
+uno = godzilla[::-1]
+print("Строка наоборот:", uno)
+
+6)
+godzilla = input("Строка: ")
+
+uno = godzilla[1:-1]
+print(uno)
+
+
+
+Контрольная 1:
+
+1)
+a = int(input("а: "))
+b = int(input("b: "))
+
+mod = abs(a - b)
+
+# Выводим результат
+print("Модуль разницы чисел a и b:", mod)
+
+2) 
+godzilla = input("Введите строку: ")
+
+for rev in reversed(godzilla):
+    print(rev, end=' ')
+
+3)
+n = int(input("n: "))
+
+if n >= 2:
+    for i in range(2, n + 1, 2):
+        print(i, end=' ')
+else:
+    print("Нет чётных чисел в указанном диапазоне.")
+
+4) 
+import math
+
+n = int(input("Введите число: "))
+
+prostoe = False
+
+if n < 2:
+    prostoe = True
+else:
+    for i in range(2, math.isqrt(n) + 1): # Функция math.isqrt(n) возвращает целочисленный квадратный корень из числа
+        if n % i == 0:
+            prostoe = True
+            break  
+
+if prostoe:
+    print(0)
+else:
+    print(1)
+
+5)
+n = int(input("Введите число: "))
+
+prostoe = False
+
+if n < 2:
+    prostoe = True
+else:
+    for i in range(2, n): 
+        if n % i == 0:
+            prostoe = True
+            break  
+
+if prostoe:
+    print(0)
+else:
+    print(1)
+
+6)
+n = int(input("Введите число N: "))
+
+for number in range(1, n + 1):
+    if number > 1:
+        prostoe = True
+        for i in range(2, number):
+            if number % i == 0:
+                prostoe = False
+                break  
+        if prostoe:
+            print(number)
+
+
+Контрольная 2:
+
+1) 
+a = int(input("a: "))
+b = int(input("b: "))
+
+c = a + b
+
+print(a,"+",+ b, "=",c)
+
+2)
+# Вводим строку
+s = input("Введите строку: ")
+
+
+if s.isdigit(): # isdigit(): возвращает True, если все символы в строке являются цифрами, и False в противном случае
+    print("Это целое число")
+
+elif s.isalpha(): # isalpha(): возвращает True, если все символы в строке являются буквенными, и False в противном случае.
+    print("Это слово")
+
+else:
+    print("Обычная строка")
+
+3) 
+n = int(input("Введите число: "))
+
+
+if n % 2 == 0 and n > 10:
+    print(1)
+elif n % 2 != 0 or n < 0:
+    print(-1)
+else:
+    print(0)
+
+4) 
+godzilla = input("Строка: ")
+
+if len(godzilla) % 2 != 0:
+    mid = godzilla[len(godzilla) // 2]
+
+    print("Элемент посередине строки:", mid)
+else:
+    print("Длина строки должна быть нечётной.")
+
+5)
+width = int(input("Ширина: "))
+height = int(input("Высота: "))
+
+symbol = input("Введите символ: ")
+
+
+if len(symbol) != 1:
+    print("Введите только один символ.")
+else:
+
+    for i in range(height):
+        for j in range(width):
+            print(symbol, end='')
+        print()  
+
+6)
+n = int(input("n: "))
+
+
+for i in range(n - 1, 0, -1):
+    if n % i == 0:
+        print("Максимальный делитель числа", n, "равен", i)
+        break
+
+7)
+password = input("Введите пароль: ")
+
+
+security = (
+    len(password) >= 8 and  
+    (any(char.isdigit() for char in password) or any(char.isupper() for char in password) or any(char.islower() for char in password))
+)
+
+
+has_digit = False
+has_upper = False
+has_lower = False
+
+for char in password:
+    if char.isdigit():
+        has_digit = True
+    if char.isupper():
+        has_upper = True
+    if char.islower():
+        has_lower = True
+
+if security and has_digit and has_upper and has_lower:
+    print("Пароль надёжный")
+else:
+    print("Пароль не надёжный")
